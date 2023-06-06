@@ -19,15 +19,20 @@
         </div>
           
           <script>
+            
+            var nomeGrafico = localStorage.getItem("nomedografico")
+            var nomesColunas 
+            var valoresColunas 
+
             const ctx = document.getElementById('grafico');
           
           new Chart(ctx, {
             type: 'bar',
             data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+              labels: coluna,
               datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: nomeGrafico,
+                data: valorescoluna,
                 borderWidth: 1
               }]
             },

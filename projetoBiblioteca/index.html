@@ -33,45 +33,76 @@
             Preencha os dados acima para ver o resultado!
         </div>
         <div>
-            <input type="button" value="Gerar Gráfico">
+            <input type="button" value="Gerar Gráfico" onclick="gerargrafico()">
         </div>
     </section>
     <footer>
         <p>&copy; Rafael Satirio, Kauan Vinicius e Richard Crozara</p>
     </footer>
     <script>
-       /* var coluna = document.getElementById('txtcoluna')
-        var valores = document.getElementById('txtvalor')
-        var valornomecoluna = []
-        var valorescoluna = []
+       /* 
+        
+
+        
 
         
         if(valornomecoluna != ''){
 
-        res.innerHTML += `<br>Nome da coluna: '${coluna.value}' adicionado`
+        
         }       
         if(valorescoluna != ''){
 
-        res.innerHTML += `<br>Valor da coluna: '${valores.value}' adicionado`
-        }  */
         
+        }  */
+        var contarColunas = 0
+        var contarValores = 0
+
+
 
         function adicionarnomegrafico(){
-        var nomegrafico = document.getElementById('txtnome').value
-        var valornomegrafico = ""
+            var nomegrafico = document.getElementById('txtnome').value
+            var valornomegrafico = ""
 
             if(valornomegrafico === ""){
                 valornomegrafico = nomegrafico
                 console.log(valornomegrafico)
                 res.textContent = `Nome do grafico '${nomegrafico}' adicionado`
-            } else {
+            } else if (valornomegrafico !== "" ){
                 valornomegrafico = nomegrafico
                 console.log(valornomegrafico)
                 res.innerHTML += `Nome do grafico '${nomegrafico}' alterado'`
-            }
-    
-
+            }  
         }
+
+        function adicionarnomecoluna(){
+            var coluna = document.getElementById('txtcoluna')
+            var valornomecoluna = []
+
+            valornomecoluna.push(coluna)
+            res.innerHTML += `<br>Nome da coluna: '${coluna.value}' adicionado`
+            contarColunas  = contarColunas + 1
+        }
+
+        function adicionarvalorcoluna(){
+            var valores = document.getElementById('txtvalor')
+            var valorescoluna = []
+
+            valorescoluna.push(valores)
+            res.innerHTML += `<br>Valor da coluna: '${valores.value}' adicionado`
+            contarValores = contarValores + 1
+        }
+
+        function gerargrafico(){
+            if(contarColunas !== contarValores){
+                alert('O número de colunas e de valores é desigual!')
+            } else {
+                var passaNomeGrafico = valornomegrafico
+                localStorage.setItem("nomedografico", passaNomeGrafico.value)
+
+                window.location.href = "grafico.html"
+            }
+
+        }  
 
     </script>
 </body>
