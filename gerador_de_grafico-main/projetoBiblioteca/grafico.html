@@ -20,10 +20,14 @@
           
           <script>
             
-            var nomeGrafico = sessionStorage.passaNomeGrafico
-            var nomesColunas = sessionStorage.passaNomeColuna
-            var valoresColunas = sessionStorage.passaValorColuna
 
+            var nomeGrafico = sessionStorage.passaNomeGrafico
+            var nomesColunas = sessionStorage.passaNomeColuna.split(",")
+            //nomesColunas.split(",",)
+            var valoresColunas = []
+            var valoresColunas = sessionStorage.passaValorColuna.split(",")
+            
+            console.log(nomesColunas)
             console.log(valoresColunas)
 
             const ctx = document.getElementById('grafico');
@@ -35,7 +39,7 @@
               datasets: [{
                 label: nomeGrafico,
                 data: valoresColunas,
-                borderWidth: 1
+                borderWidth: 2
               }]
             },
             options: {
