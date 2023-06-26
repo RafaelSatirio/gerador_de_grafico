@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <header>
+        <h1>Gerador de Gráfico</h1>
+    </header>
+    <section>
+        <div class="container"></div>
+        <div class="container">
+            <p class="paragrafo">Nome do gráfico:</p>
+            <input class="w3-input" type="text" name="txtnome" id="txtnome">
+            <input class="button" type="button" value="Adicionar nome do Gráfico" onclick="adicionarnomegrafico()">
+
+            <p class="paragrafo">Nomes das colunas:</p>
+            <input class="w3-input" type="text" name="txtcoluna" id="txtcoluna">
+            <input class="button" type="button" value="Adicionar nome de cada coluna" onclick="adicionarnomecoluna()">
+
+            <p class="paragrafo">Valores das colunas:</p>
+            <input class="w3-input" type="number" name="txtvalor" id="txtvalor">
+            <input class="button" type="button" value="Adicionar valor de cada coluna" onclick="adicionarvalorcoluna()">
+            <p>
+
+
+
+
+            </p>
+        </div>
+        <div id="res">
+            Preencha os dados acima para ver o resultado!
+        </div>
+        <div>
+        <!----> <input class="button" type="button" value="Gerar Gráfico" onclick="gerargrafico()"> 
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Rafael Satirio, Kauan Vinicius e Richard Crozara</p>
+    </footer>
+    <script>
+       /* 
+        
+
+        
+
+        
+        if(valornomecoluna != ''){
+
+        
+        }       
+        if(valorescoluna != ''){
+
+        
+        }  */
+        var contarColunas = 0
+        var contarValores = 0
+
+
+
+        function adicionarnomegrafico(){
+            var nomegrafico = document.getElementById('txtnome').value
+            var valornomegrafico = ""
+
+            if(valornomegrafico === ""){
+                valornomegrafico = nomegrafico
+                console.log(valornomegrafico)
+                res.textContent = `Nome do grafico '${nomegrafico}' adicionado`
+            } else if (valornomegrafico !== "" ){
+                valornomegrafico = nomegrafico
+                console.log(valornomegrafico)
+                res.innerHTML += `Nome do grafico '${nomegrafico}' alterado'`
+            }  
+            return valornomegrafico
+        }
+
+        var valornomecoluna = []
+        function adicionarnomecoluna(){
+            var coluna = document.getElementById('txtcoluna').value
+
+            valornomecoluna.push(coluna)
+            res.innerHTML += `<br>Nome da coluna: '${coluna}' adicionado`
+            contarColunas  = contarColunas + 1
+            console.log(valornomecoluna)
+
+        }
+
+        var valorescoluna = []
+        function adicionarvalorcoluna(){
+            var valores = document.getElementById('txtvalor').value
+
+
+            valorescoluna.push(valores)
+            res.innerHTML += `<br>Valor da coluna: '${valores}' adicionado`
+            contarValores = contarValores + 1
+            console.log(valorescoluna)
+
+        }
+            var passaNomeGrafico = []
+            var passaNomeColuna = []
+            var passaValorColuna = []
+            sessionStorage.passaNomeGrafico 
+            sessionStorage.passaNomeColuna 
+            sessionStorage.passaValorColuna 
+
+        function gerargrafico(){
+            if(contarColunas !== contarValores){
+                alert('O número de colunas e de valores é desigual!')
+            } else {
+                valornomegrafico = adicionarnomegrafico()
+
+                sessionStorage.passaNomeGrafico = valornomegrafico
+                sessionStorage.passaNomeColuna = [valornomecoluna]
+                sessionStorage.passaValorColuna = [valorescoluna]
+                window.location.href = "grafico.html"
+            }
+
+        }  
+
+    </script>
+</body>
+</html>
